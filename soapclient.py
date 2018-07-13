@@ -1,10 +1,20 @@
-from zeep import Client
 from requests import Session
 from requests.auth import HTTPBasicAuth
-from zeep.cache import SqliteCache
-from zeep.transports import Transport
-from zeep.settings import Settings
 import json
+
+try:
+    from zeep import Client
+    from zeep.cache import SqliteCache
+    from zeep.transports import Transport
+    from zeep.settings import Settings
+except:
+    raise ValueError("zeep library is not installed. Run 'pip install zeep' for installing it.\n")
+
+if api.config.wsdl == "":
+    raise ValueError("The WSDL File config field cannot be empty.")
+
+if api.config.operationName == "":
+    raise ValueError("The Operation Name config field cannot be empty.")
 
 
 def populate_transport():
@@ -117,7 +127,7 @@ except NameError:
 
         class config:
 
-            wsdl = 'http://www.soapclient.com/xml/soapresponder.wsdl'#'/home/hadoop/datahub/operators/soapclient/calculator.asmx?WSDL' #'http://www.soapclient.com/xml/soapresponder.wsdl'#'http://www.dneonline.com/calculator.asmx?WSDL'
+            wsdl = ''#'http://www.soapclient.com/xml/soapresponder.wsdl'#'/home/hadoop/datahub/operators/soapclient/calculator.asmx?WSDL' #'http://www.soapclient.com/xml/soapresponder.wsdl'#'http://www.dneonline.com/calculator.asmx?WSDL'
             portName = ''#'CalculatorSoap'  #'SoapResponderPortType'#"CalculatorSoap12"
             operationName = 'Method1'#"Subtract"
             operationParameters = "Hello, World"#"100, 40" #"Oh, shot me"
