@@ -47,7 +47,7 @@ def populate_transport():
                                   timeout=session_timeout if session_timeout else 300,
                                   session=session)
     except Exception as excp:
-        api.send("debug", "40 " + str(excp))
+        api.send("debug", str(excp))
 
     return transport
 
@@ -80,7 +80,7 @@ def on_input(servicename):
     try:
         setting = Settings(strict=strict, xml_huge_tree=xml_huge_tree)
     except Exception as other:
-        api.send("debug", "73 " + str(other))
+        api.send("debug", str(other))
 
     port_name = None
     if api.config.portName:
@@ -95,7 +95,7 @@ def on_input(servicename):
         if api.config.operationParameters:
             op_params = api.config.operationParameters.split(',')
     except Exception as other:
-        api.send("debug", "88 " + str(other))
+        api.send("debug", str(other))
 
     transport = populate_transport()
     lst_normalized_header = populate_soap_header()
@@ -109,7 +109,7 @@ def on_input(servicename):
         else:
             api.send("debug", 'No Operation Name specified!')
     except Exception as other:
-        api.send("debug", "101 " + str(other))
+        api.send("debug", str(other))
 
 
 # Mock pipeline engine api to allow testing outside pipeline engine
