@@ -1,0 +1,7 @@
+{
+    "name": "vsolution_vflow_soapclientpy3",
+    "version": "0.0.1",
+    "description": "vFlow SOAP Client for Python3.6",
+    "license": "SAP SE, all rights reserved",
+    "os": ["linuxx86_64"]
+}

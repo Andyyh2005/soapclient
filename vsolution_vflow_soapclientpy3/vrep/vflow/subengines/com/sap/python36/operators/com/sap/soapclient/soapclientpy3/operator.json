@@ -1,0 +1,43 @@
+{
+	"component": "com.sap.system.python3Operator",
+	"description": "Py3 SOAP Client",
+	"inports": [
+		{
+			"name": "serviceName",
+			"type": "string"
+		}
+	],
+	"outports": [
+		{
+			"name": "response",
+			"type": "string"
+		},
+		{
+			"name": "debug",
+			"type": "string"
+		}
+	],
+	"tags": {
+   	"python36": "",
+		"zeep": ""
+   },
+	"config": {
+		"$type": "http://sap.com/vflow/com.sap.soapclient.soapclientpy3.schema.json",
+		"wsdl": "/soapclient/config/connector.wsdl",
+		"portName": "",
+		"operationName": "Method1",
+		"operationParameters": "Hello, World",
+		"soapHeaders": {},
+		"httpAuthUser": "",
+		"httpAuthPassword": "",
+		"sessionTimeout": "300",
+		"sslVerificationPath": "",
+		"strict": true,
+		"xmlHugeTree": false,
+		"cachePath": "/tmp/soapclient_cache/sqlite.db",
+		"scriptReference": "operator.py",
+		"script": "file://operator.py"
+	},
+	"iconsrc": "zeep.png",
+   "responsible": "andy.yin@sap.com"
+}

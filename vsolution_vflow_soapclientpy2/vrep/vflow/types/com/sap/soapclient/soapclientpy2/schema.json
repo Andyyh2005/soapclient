@@ -1,0 +1,70 @@
+{
+	"$schema": "http://json-schema.org/draft-06/schema#",
+	"$id": "http://sap.com/vflow/com.sap.soapclient.soapclientpy2.schema.json",
+	"type": "object",
+	"properties": {
+		"codelanguage": {
+			"type": "string"
+		},
+		"wsdl": {
+			"title": "WSDL File",
+			"type": "string"
+		},
+		"portName": {
+			"title": "Port Name",
+			"type": "string"
+		},
+		"operationName": {
+			"title": "Operation Name",
+			"type": "string"
+		},
+		"operationParameters": {
+			"title": "Operation Parameters",
+			"type": "string"
+		},
+		"soapHeaders": {
+			"title": "SOAP Headers",
+			"type": "object",
+			"properties": {}
+		},
+		"httpAuthUser": {
+			"title": "HTTP Authentication User",
+			"type": "string"
+		},
+		"httpAuthPassword": {
+			"title": "HTTP Authentication Password",
+			"type": "string",
+			"format": "password"
+		},
+		"sessionTimeout": {
+			"title": "Session timeout in second",
+			"type": "string"
+		},
+		"sslVerificationPath": {
+			"title": "SSL Certificate Path",
+			"type": "string"
+		},
+		"strict": {
+			"title": "Strict mode",
+			"type": "boolean"
+		},
+		"xmlHugeTree": {
+			"title": "XML huge tree",
+			"type": "boolean"
+		},
+		"cachePath": {
+			"title": "Cache backend path",
+			"type": "string"
+		},
+		"scriptReference": {
+			"type": "string"
+		},
+		"script": {
+			"type": "string"
+		}
+	},
+	"required": [
+		"wsdl",
+		"operationName"
+	]
+}

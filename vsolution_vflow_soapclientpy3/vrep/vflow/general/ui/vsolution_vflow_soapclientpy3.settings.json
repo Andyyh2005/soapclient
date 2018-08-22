@@ -1,0 +1,18 @@
+{
+  "OperatorCategories": [
+    {
+      "name": "Connectivity",
+      "entities": [
+        "com.sap.soapclient.soapclientpy3"
+      ]
+    }
+  ],
+  "GraphCategories": [
+    {
+      "name": "Others",
+      "entities": [
+        "com.sap.soapclient.soapclientpy3.demo"
+      ]
+    }
+  ]
+}

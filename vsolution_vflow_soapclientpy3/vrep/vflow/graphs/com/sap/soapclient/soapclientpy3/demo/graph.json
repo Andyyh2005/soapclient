@@ -1,0 +1,115 @@
+{
+    "properties": {},
+    "description": "Py3 SOAP Client Example",
+    "processes": {
+        "constantgenerator1": {
+            "component": "com.sap.util.constantGenerator",
+            "metadata": {
+                "label": "Constant Generator",
+                "x": 269,
+                "y": 197,
+                "height": 80,
+                "width": 120,
+                "extensible": true,
+                "config": {
+                    "content": "SoapResponder",
+                    "duration": "2s",
+                    "mode": "pulse"
+                }
+            }
+        },
+        "terminal1": {
+            "component": "com.sap.util.terminal",
+            "metadata": {
+                "label": "Response Terminal",
+                "x": 843,
+                "y": 154,
+                "height": 80,
+                "width": 120,
+                "ui": "dynpath",
+                "config": {
+                    "routes": [
+                        {
+                            "Path": "/",
+                            "RoutingType": "static",
+                            "Target": "ui"
+                        },
+                        {
+                            "Path": "/socket",
+                            "RoutingType": "websocket",
+                            "Target": "1"
+                        }
+                    ]
+                }
+            }
+        },
+        "terminal2": {
+            "component": "com.sap.util.terminal",
+            "metadata": {
+                "label": "Debug Terminal",
+                "x": 903,
+                "y": 301,
+                "height": 80,
+                "width": 120,
+                "ui": "dynpath",
+                "config": {}
+            }
+        },
+        "py3soapclient1": {
+            "component": "com.sap.soapclient.soapclientpy3",
+            "metadata": {
+                "label": "Py3 SOAP Client",
+                "x": 596,
+                "y": 223,
+                "height": 80,
+                "width": 120,
+                "extensible": true,
+                "config": {}
+            }
+        }
+    },
+    "groups": [],
+    "connections": [
+        {
+            "metadata": {
+                "points": "393,237 492.5,237 492.5,263 592,263"
+            },
+            "src": {
+                "port": "out",
+                "process": "constantgenerator1"
+            },
+            "tgt": {
+                "port": "serviceName",
+                "process": "py3soapclient1"
+            }
+        },
+        {
+            "metadata": {
+                "points": "720,254 779.5,254 779.5,194 839,194"
+            },
+            "src": {
+                "port": "response",
+                "process": "py3soapclient1"
+            },
+            "tgt": {
+                "port": "in1",
+                "process": "terminal1"
+            }
+        },
+        {
+            "metadata": {
+                "points": "720,272 809.5,272 809.5,341 899,341"
+            },
+            "src": {
+                "port": "debug",
+                "process": "py3soapclient1"
+            },
+            "tgt": {
+                "port": "in1",
+                "process": "terminal2"
+            }
+        }
+    ],
+    "inports": {},
+    "outports": {}
+}
